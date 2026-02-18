@@ -8,9 +8,11 @@ import escapeRoomImg from 'figma:asset/7071ce05d6ecee59a1487773138466ef52a07863.
 const projects = [
   {
     title: 'Escape Room',
-    description: 'Built with React',
+    description: 'An immersive interactive escape room experience with puzzles and challenges',
     image: escapeRoomImg,
     tags: ['React', 'TypeScript', 'Tailwind CSS'],
+    liveUrl: 'https://escape-room-vyy9.vercel.app/',
+    codeUrl: 'https://github.com/Kaaru12345/Escape-room',
   },
   {
     title: 'Dog_Vision',
@@ -23,6 +25,7 @@ const projects = [
     description: 'A simple and elegant note-taking application built with Flask for quick thoughts',
     image: 'https://images.unsplash.com/photo-1759661990336-51bd4b951fea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxub3RlcyUyMHdyaXRpbmclMjBhcHB8ZW58MXx8fHwxNzcxNDAzMDgzfDA&ixlib=rb-4.1.0&q=80&w=1080',
     tags: ['Flask', 'Python', 'SQLite', 'HTML/CSS'],
+    codeUrl: 'https://github.com/Kaaru12345/notesy',
   },
   {
     title: 'Web Vulnerability Scanner',
@@ -82,22 +85,28 @@ export function Projects() {
                 </div>
 
                 <div className="flex gap-3 md:gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-3 md:px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition-colors text-sm md:text-base"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-3 md:px-4 py-2 border border-white/20 rounded-full hover:bg-white/10 transition-colors text-sm md:text-base"
-                  >
-                    <Github className="w-4 h-4" />
-                    Code
-                  </motion.button>
+                  {project.liveUrl && (
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => window.open(project.liveUrl, '_blank')}
+                      className="flex items-center gap-2 px-3 md:px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition-colors text-sm md:text-base cursor-pointer"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View
+                    </motion.button>
+                  )}
+                  {project.codeUrl && (
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => window.open(project.codeUrl, '_blank')}
+                      className="flex items-center gap-2 px-3 md:px-4 py-2 border border-white/20 rounded-full hover:bg-white/10 transition-colors text-sm md:text-base cursor-pointer"
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </motion.button>
+                  )}
                 </div>
               </div>
             </motion.div>

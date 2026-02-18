@@ -7,7 +7,7 @@ const experiences = [
   {
     title: "Web Developer",
     company: "Cubical Research Capital",
-    period: "Oct 2025 - Dec 2025",
+    period: "Sept 2025 - Dec 2025",
     location: "Mumbai, INDIA",
     responsibilities: [
       "Developed and deployed the company website using HTML5, CSS3, JavaScript, React.js, and Tailwind CSS.",
